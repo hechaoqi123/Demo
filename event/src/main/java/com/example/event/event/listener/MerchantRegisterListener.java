@@ -1,5 +1,6 @@
 package com.example.event.event.listener;
 
+import com.example.event.annotation.ParamLog;
 import com.example.event.event.instance.MerchantRegisterEvent;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.event.EventListener;
@@ -18,7 +19,7 @@ public class MerchantRegisterListener {
 
     @Async
     @EventListener
+    @ParamLog
     public void merchantRegisterEventHandler(MerchantRegisterEvent event) {
-        log.info(Thread.currentThread().getName()+event.toString());
     }
 }

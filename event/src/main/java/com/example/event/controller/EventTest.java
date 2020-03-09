@@ -1,5 +1,6 @@
 package com.example.event.controller;
 
+import com.example.event.annotation.ParamLog;
 import com.example.event.event.EventPublishManager;
 import com.example.event.event.data.MerchantRegisterData;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +20,8 @@ import java.util.UUID;
 public class EventTest {
 
     @RequestMapping("/testMerchantRegisterEvent")
-    public String testMerchantRegisterEvent(){
+    @ParamLog
+    public String testMerchantRegisterEvent(String a){
         MerchantRegisterData eventContent= MerchantRegisterData.builder()
                 .merchantId(UUID.randomUUID().toString().replace("-",""))
                 .merchantName("hello world").build();
