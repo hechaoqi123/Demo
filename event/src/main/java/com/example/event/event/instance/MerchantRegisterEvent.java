@@ -8,6 +8,7 @@ import org.springframework.context.ApplicationEvent;
 
 /**
  * 商户入驻事件
+ *
  * @author hcq
  * @date 2020/1/10 16:25
  */
@@ -21,7 +22,7 @@ public class MerchantRegisterEvent extends ApplicationEvent {
 
     @Override
     public MerchantRegisterData getSource() {
-        return (MerchantRegisterData)super.getSource();
+        return (MerchantRegisterData) super.getSource();
     }
 
 }

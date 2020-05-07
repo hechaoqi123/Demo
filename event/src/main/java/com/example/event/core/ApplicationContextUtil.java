@@ -34,6 +34,7 @@ public class ApplicationContextUtil implements ApplicationContextAware {
 
     /**
      * 获取指定类型的所有bean集合
+     *
      * @param cla beanType
      * @return Map<BeanName, Bean>
      */
@@ -43,15 +44,17 @@ public class ApplicationContextUtil implements ApplicationContextAware {
 
     /**
      * 获取指定类型的Bean
+     *
      * @param cla beanType
      * @return Bean
      */
-    public <T> T getBean(Class<T> cla) {
+    public static <T> T getBean(Class<T> cla) {
         return context.getBean(cla);
     }
 
     /**
      * 获取指定名称的Bean
+     *
      * @param beanName beanName
      * @return Bean
      */

@@ -24,12 +24,13 @@ public class LogAspect {
      * 打印入参切入点
      */
     @Pointcut("@annotation(com.example.event.annotation.ParamLog)")
-    public void printLog(){}
+    public void printLog() {
+    }
 
 
-   @Before("printLog()")
+    @Before("printLog()")
     public void printLog(JoinPoint point) {
-        log.info("MethodName：【{}】，JsonParam：【{}】",point.getSignature().getName(),JSONObject.toJSONString(point.getArgs()));
+        log.info("MethodName：【{}】，JsonParam：【{}】", point.getSignature().getName(), JSONObject.toJSONString(point.getArgs()));
     }
 
 }

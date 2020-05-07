@@ -6,13 +6,14 @@ import lombok.EqualsAndHashCode;
 
 /**
  * 商户入驻数据模型
+ *
  * @author hcq
  * @date 2020/1/13 11:39
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Builder
-public  class MerchantRegisterData {
+public class MerchantRegisterData {
     /**
      * 商户id
      */

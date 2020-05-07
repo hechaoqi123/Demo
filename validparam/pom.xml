@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>event</artifactId>
+    <artifactId>validparam</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>event</name>
+    <name>validparam</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -45,16 +45,6 @@
                     <artifactId>junit-vintage-engine</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjweaver</artifactId>
-            <version>1.9.5</version>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>1.2.59</version>
         </dependency>
     </dependencies>
 
