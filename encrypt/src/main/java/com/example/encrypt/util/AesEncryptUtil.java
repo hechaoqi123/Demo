@@ -23,6 +23,7 @@ public class AesEncryptUtil {
     private static final String ENCRYPT_TYPE = "AES";
 
     /**
+     * 加密
      * @param data        数据
      * @param securityKey 秘钥
      * @return 密文
@@ -39,7 +40,7 @@ public class AesEncryptUtil {
      * @param data        密文
      * @param securityKey 秘钥
      */
-    public static String decode(String data, String securityKey) throws Exception {
+    public static String decrypt(String data, String securityKey) throws Exception {
         Cipher cipher = getCipher(Cipher.DECRYPT_MODE, securityKey);
         //8.将加密并编码后的内容解码成字节数组
         byte[] decodeBuffer = new BASE64Decoder().decodeBuffer(data);
@@ -65,9 +66,9 @@ public class AesEncryptUtil {
 
     public static void main(String[] args) throws Exception {
         String data="hello world";
-        String key="000d9b262280432e96c2c1b5ca3936e4000d9b262280432e96c2c1b5ca3936e4000d9b262280432e96c2c1b5ca3936e4";
+        String key="000d9b262280432e96c2c1b5ca3936e4";
         String dataEncode = encrypt(data, key);
         System.out.println("密文："+dataEncode);
-        System.out.println("明文"+decode(dataEncode, key));
+        System.out.println("明文"+ decrypt(dataEncode, key));
     }
 }

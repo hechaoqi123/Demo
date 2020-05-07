@@ -14,7 +14,7 @@ import java.security.NoSuchAlgorithmException;
  * @author hcq
  * @date 2020/4/29 16:01
  */
-public class Digest {
+public class DigestUtil {
 
     private static final String MD5_TYPE="MD5";
 
