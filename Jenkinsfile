@@ -6,8 +6,8 @@ pipeline {
 
     // 集成工具
     tools {
-        maven
-        jdk
+        maven 'maven'
+        jdk 'jdk'
     }
 
     // 构建步骤
