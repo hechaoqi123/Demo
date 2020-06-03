@@ -1,12 +1,11 @@
 package com.example.validparam.model;
 
-import com.example.validparam.controller.ParamConfig;
+import com.example.validparam.annotation.verify.In;
+import com.example.validparam.annotation.verify.Or;
+import com.example.validparam.annotation.verify.PhoneNumber;
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.validation.constraints.Pattern;
-import java.security.Permission;
 
 /**
  * 限制参数为指定集合中的某一个元素
@@ -16,23 +15,17 @@ import java.security.Permission;
  */
 @Data
 @Component
-public class ParamIn extends SecurityManager  {
-
-    ParamConfig paramConfig;
-
-    @Autowired
-    public void setParamConfig(ParamConfig paramConfig) {
-        this.paramConfig = paramConfig;
-    }
+public class ParamIn {
 
     /**
      * 支付类型
      */
-    @Pattern(regexp = "^weixin$|^alipay$", message = "支付类型有误！")
+    @PhoneNumber
     private String payType;
 
-    @Override
-    public void checkPermission(Permission perm) {
-            throw new SecurityException("Can not change the permission dude.!");
-    }
+    /**
+     * 支付授权码
+     */
+    private String authCode;
+
 }
