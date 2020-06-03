@@ -1,7 +1,14 @@
+#!groovy
 pipeline {
 
     // 不指定执行Jenkinsfile脚本的节点
     agent any
+
+    // 集成工具
+    tools {
+        maven
+        jdk
+    }
 
     // 构建步骤
     stages {
@@ -15,6 +22,26 @@ pipeline {
             }
         }
 
+        stage('进行打包'){
+            steps{
+                echo "开始打包release分支代码"
+                sh 'mvn -version'
+                sh 'java -version'
+            }
+        }
+
     }
 
+    //异常处理
+    post {
+        unstable {
+            echo "构建不稳定"
+        }
+        unsuccessful {
+            echo "构建失败"
+        }
+        success {
+            echo "构建成功"
+        }
+    }
 }
