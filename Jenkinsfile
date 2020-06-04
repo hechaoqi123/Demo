@@ -18,7 +18,7 @@ pipeline {
         credentialsId = '39b853579aa24971ad685bdfb3dd918f'
 
         // maven打包命令
-        packageCommand = 'mvn clean package -Dmaven.test.skip=true -Dmaven.repo.local=/project/release'
+        packageCommand = 'mvn clean package -Dmaven.test.skip=true'
 
         // 远程服务器(host、user、password已配置在jenkins中，通过此名称进行引用)
         remoteServer = '腾讯云'
@@ -27,9 +27,8 @@ pipeline {
         remoteDis = '/usr/project'
 
         // jenkins包路径
-        sourceFile = '/project/release/validparam.jar'
+        sourceFile = '/target/validparam.jar'
 
-        // jenkins包所在文件夹
         removePreFix = '/project/release'
 
         // 传输完成后的执行脚本
