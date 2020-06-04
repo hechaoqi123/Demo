@@ -1,7 +1,6 @@
 package com.example.validparam.vo;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 
 /**
  * @author hcq
