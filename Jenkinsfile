@@ -60,9 +60,11 @@ pipeline {
 
         stage('开始部署'){
             steps{
-                sh 'echo "当前准备部署的路径为：" && pwd'
-                sshPublisher(publishers: [sshPublisherDesc(configName: "${remoteServer}", transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: "${runCommand}", execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: "${remoteDir}", remoteDirectorySDF: false, removePrefix: "${removePreFix}", sourceFiles: "${sourceFile}")], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
-                echo "包部署完毕"
+                dir('validparam') {
+                    sh 'echo "当前准备部署的路径为：" && pwd'
+                    sshPublisher(publishers: [sshPublisherDesc(configName: "${remoteServer}", transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: "${runCommand}", execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: "${remoteDir}", remoteDirectorySDF: false, removePrefix: "${removePreFix}", sourceFiles: "${sourceFile}")], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+                    echo "包部署完毕"
+                }
             }
         }
     }
