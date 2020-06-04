@@ -23,8 +23,8 @@ pipeline {
         // 远程服务器(host、user、password已配置在jenkins中，通过此名称进行引用)
         remoteServer = '腾讯云'
 
-        // 远程服务器目录
-        remoteDir = '/usr/project'
+        // 远程服务器目录(已配置在jenkins中，暂时不需要进行二次划分，因此此处不做限制)
+        remoteDir = ''
 
         // jenkins包路径
         sourceFile = 'target/validparam-0.0.1-SNAPSHOT.jar'
@@ -32,7 +32,7 @@ pipeline {
         removePreFix = 'target'
 
         // 传输完成后的执行脚本
-        runCommand = 'java -jar /usr/project/validparam-0.0.1-SNAPSHOT.jar'
+        runCommand = 'pwd && java -jar -d /usr/project/validparam-0.0.1-SNAPSHOT.jar'
     }
 
 
