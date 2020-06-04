@@ -43,14 +43,14 @@ pipeline {
         stage('拉取代码'){
             steps {
                 echo "拉取 release 分支的代码。"
-                git branch: 'release', credentialsId: ${credentialsId}, url: ${repositoryUrl}
+                git branch: 'release', credentialsId: '${credentialsId}', url: '${repositoryUrl}'
             }
         }
 
         stage('进行打包'){
             steps{
                 dir('validparam') {
-                    sh ${packageCommand}
+                    sh '${packageCommand}'
                     echo "代码打包完成"
                 }
             }
