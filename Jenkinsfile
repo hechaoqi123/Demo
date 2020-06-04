@@ -32,7 +32,7 @@ pipeline {
         removePreFix = 'target'
 
         // 传输完成后的执行脚本
-        runCommand = 'pwd && java -jar -d /usr/project/validparam-0.0.1-SNAPSHOT.jar'
+        runCommand = 'pwd && java -jar /usr/project/validparam-0.0.1-SNAPSHOT.jar &'
     }
 
 
