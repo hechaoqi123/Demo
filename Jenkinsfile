@@ -27,7 +27,7 @@ pipeline {
         remoteDir = '/usr/project'
 
         // jenkins包路径
-        sourceFile = '/target/validparam.jar'
+        sourceFile = '/target/validparam-0.0.1-SNAPSHOT.jar'
 
         removePreFix = '/project/release'
 
@@ -42,13 +42,16 @@ pipeline {
         stage('拉取代码'){
             steps {
                 checkout([$class: 'GitSCM', branches: [[name: '*/release']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: "${credentialsId}", url: "${repositoryUrl}"]]])
+                sh 'pwd'
                 echo "代码拉取完成。"
             }
         }
 
         stage('进行打包'){
             steps{
+                sh 'pwd'
                 dir('validparam') {
+                    sh 'pwd'
                     sh "${packageCommand}"
                     echo "代码打包完成"
                 }
@@ -57,6 +60,7 @@ pipeline {
 
         stage('开始部署'){
             steps{
+                sh 'pwd'
                 sshPublisher(publishers: [sshPublisherDesc(configName: "${remoteServer}", transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: "${runCommand}", execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: "${remoteDir}", remoteDirectorySDF: false, removePrefix: "${removePreFix}", sourceFiles: "${sourceFile}")], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
                 echo "包部署完毕"
             }
