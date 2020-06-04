@@ -24,7 +24,7 @@ pipeline {
         remoteServer = '腾讯云'
 
         // 远程服务器目录(已配置在jenkins中，暂时不需要进行二次划分，因此此处不做限制)
-        remoteDir = ''
+        remoteDir = '/'
 
         // jenkins包路径
         sourceFile = 'target/validparam-0.0.1-SNAPSHOT.jar'
