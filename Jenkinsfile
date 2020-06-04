@@ -24,7 +24,7 @@ pipeline {
         remoteServer = '腾讯云'
 
         // 远程服务器目录
-        remoteDis = '/usr/project'
+        remoteDir = '/usr/project'
 
         // jenkins包路径
         sourceFile = '/target/validparam.jar'
