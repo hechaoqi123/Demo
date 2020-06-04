@@ -32,7 +32,7 @@ pipeline {
         removePreFix = 'target'
 
         // 传输完成后的执行脚本
-        runCommand = 'pwd && java -jar /usr/project/validparam-0.0.1-SNAPSHOT.jar &'
+        runCommand = 'java -jar /usr/project/validparam-0.0.1-SNAPSHOT.jar &'
     }
 
 
@@ -59,7 +59,7 @@ pipeline {
             steps{
                 dir('validparam') {
                     sshPublisher(publishers: [sshPublisherDesc(configName: "${remoteServer}", transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: "${runCommand}", execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: "${remoteDir}", remoteDirectorySDF: false, removePrefix: "${removePreFix}", sourceFiles: "${sourceFile}")], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
-                    echo "包部署完毕"
+                    echo "包部署完毕。"
                 }
             }
         }
