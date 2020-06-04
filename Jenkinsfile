@@ -42,7 +42,7 @@ pipeline {
 
         stage('拉取代码'){
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/release']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: ${credentialsId}, url: ${repositoryUrl}]]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/release']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: "${credentialsId}", url: "${repositoryUrl}"]]])
                 echo "代码拉取完成。"
             }
         }
