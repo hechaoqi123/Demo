@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
  * @author hcq
  * @date 2020/5/14 11:27
  */
-@Component
+// @Component
 public class DbValue {
 
     /**
