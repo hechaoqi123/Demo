@@ -12,28 +12,28 @@ pipeline {
     environment{
 
         // git仓库地址
-        repositoryUrl = "https://github.com/hechaoqi123/Demo.git"
+        repositoryUrl = 'https://github.com/hechaoqi123/Demo.git'
 
         // 凭证id（git登录账号及密码，已经配置在jenkins中，通过此id进行引用）
-        credentialsId = "39b853579aa24971ad685bdfb3dd918f"
+        credentialsId = '39b853579aa24971ad685bdfb3dd918f'
 
         // maven打包命令
-        packageCommand = "mvn clean package -Dmaven.test.skip=true -Dmaven.repo.local=/project/release"
+        packageCommand = 'mvn clean package -Dmaven.test.skip=true -Dmaven.repo.local=/project/release'
 
         // 远程服务器(host、user、password已配置在jenkins中，通过此名称进行引用)
-        remoteServer = "腾讯云"
+        remoteServer = '腾讯云'
 
         // 远程服务器目录
-        remoteDis = "/usr/project"
+        remoteDis = '/usr/project'
 
         // jenkins包路径
-        sourceFile = "/project/release/validparam.jar"
+        sourceFile = '/project/release/validparam.jar'
 
         // jenkins包所在文件夹
-        removePreFix = "/project/release"
+        removePreFix = '/project/release'
 
         // 传输完成后的执行脚本
-        runCommand = "java -jar validparam.jar"
+        runCommand = 'java -jar validparam.jar'
     }
 
 
