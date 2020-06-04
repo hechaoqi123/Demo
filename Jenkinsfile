@@ -27,9 +27,9 @@ pipeline {
         remoteDir = '/usr/project'
 
         // jenkins包路径
-        sourceFile = '/target/validparam-0.0.1-SNAPSHOT.jar'
+        sourceFile = 'target/validparam-0.0.1-SNAPSHOT.jar'
 
-        removePreFix = '/target'
+        removePreFix = 'target'
 
         // 传输完成后的执行脚本
         runCommand = 'java -jar /usr/project/validparam-0.0.1-SNAPSHOT.jar'
