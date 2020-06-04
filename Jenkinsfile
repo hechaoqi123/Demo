@@ -42,8 +42,8 @@ pipeline {
 
         stage('拉取代码'){
             steps {
-                echo "拉取 release 分支的代码。"
-                git branch: 'release', credentialsId: '${credentialsId}', url: '${repositoryUrl}'
+                checkout([$class: 'GitSCM', branches: [[name: '*/release']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: ${credentialsId}, url: ${repositoryUrl}]]])
+                echo "代码拉取完成。"
             }
         }
 
