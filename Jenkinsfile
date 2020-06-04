@@ -42,16 +42,16 @@ pipeline {
         stage('拉取代码'){
             steps {
                 checkout([$class: 'GitSCM', branches: [[name: '*/release']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: "${credentialsId}", url: "${repositoryUrl}"]]])
-                sh 'pwd'
+                sh 'echo "当前拉取代码的路径为：" && pwd'
                 echo "代码拉取完成。"
             }
         }
 
         stage('进行打包'){
             steps{
-                sh 'pwd'
+                sh 'echo "当前准备打包的路径为：" && pwd'
                 dir('validparam') {
-                    sh 'pwd'
+                    sh 'echo "正在进行打包的路径为：" && pwd'
                     sh "${packageCommand}"
                     echo "代码打包完成"
                 }
@@ -60,7 +60,7 @@ pipeline {
 
         stage('开始部署'){
             steps{
-                sh 'pwd'
+                sh 'echo "当前准备部署的路径为：" && pwd'
                 sshPublisher(publishers: [sshPublisherDesc(configName: "${remoteServer}", transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: "${runCommand}", execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: "${remoteDir}", remoteDirectorySDF: false, removePrefix: "${removePreFix}", sourceFiles: "${sourceFile}")], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
                 echo "包部署完毕"
             }
