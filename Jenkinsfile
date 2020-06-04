@@ -29,10 +29,10 @@ pipeline {
         // jenkins包路径
         sourceFile = '/target/validparam-0.0.1-SNAPSHOT.jar'
 
-        removePreFix = '/project/release'
+        removePreFix = '/target'
 
         // 传输完成后的执行脚本
-        runCommand = 'java -jar validparam.jar'
+        runCommand = 'java -jar /usr/project/validparam-0.0.1-SNAPSHOT.jar'
     }
 
 
